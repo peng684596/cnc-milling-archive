@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>数控铣竞赛图档库 · 分类导航</title>
+<link rel="stylesheet" href="assets/style.css">
+<!-- SECTION: data —— file:// 双击打开时 fetch 被禁的回退数据（由 gen_index.py 生成） -->
+<script src="assets/data.js"></script>
+</head>
+<body>
+
+<!-- SECTION: topbar -->
+<header id="topbar">
+  <button id="menuBtn" class="btn" title="分类侧栏">☰</button>
+  <div id="brand">数控铣图档库<small>CNC 竞赛必备图纸·模型·评分表</small></div>
+  <div id="searchWrap">
+    <span class="icon">⌕</span>
+    <input id="search" type="search" autocomplete="off" spellcheck="false"
+           placeholder="搜索文件名 / 路径 / 标签，支持 地区:广东 类型:pdf 层级:省赛 年份:2013">
+    <span id="kbdHint">/</span>
+  </div>
+  <span id="syntaxHelp">语法: 空格=并且 · key:值</span>
+  <div id="topActions">
+    <button id="themeBtn" class="btn" title="切换深浅主题">◐ 主题</button>
+  </div>
+</header>
+
+<div id="shell">
+  <!-- SECTION: sidebar -->
+  <aside id="sidebar">
+    <div id="dimTabs"></div>
+    <div id="treeHead">
+      <button id="clearAll" class="btn">清空筛选</button>
+      <button id="expandAll" class="btn">展开</button>
+      <button id="collapseAll" class="btn">收起</button>
+      <span class="hint">点击=过滤 · Ctrl 点击=多选叠加</span>
+    </div>
+    <nav id="tree" aria-label="分类树"></nav>
+  </aside>
+
+  <!-- SECTION: main -->
+  <main id="main">
+    <div id="stats"></div>
+    <div id="toolbar">
+      <div id="crumbs"></div>
+      <span id="count"></span>
+      <div id="toolRight">
+        <div class="seg" id="viewSeg">
+          <button data-v="card" class="on">卡片</button>
+          <button data-v="table">表格</button>
+        </div>
+        <select id="sortSel" title="排序">
+          <option value="path">按名称</option>
+          <option value="size">按大小</option>
+          <option value="mtime">按修改时间</option>
+          <option value="year">按年份</option>
+          <option value="region">按地区</option>
+        </select>
+        <select id="sizeSel" title="每页数量">
+          <option value="24" selected>每页 24</option>
+          <option value="48">每页 48</option>
+          <option value="96">每页 96</option>
+          <option value="200">每页 200</option>
+        </select>
+      </div>
+    </div>
+    <div id="listWrap">
+      <div id="notice"></div>
+      <div id="cards"></div>
+      <div id="tableWrap"></div>
+      <div id="empty" hidden>
+        <div class="big">¯\_(ツ)_/¯</div>
+        <p>没有符合条件的文件</p>
+        <button class="btn" id="emptyClear">清空全部筛选</button>
+      </div>
+      <div id="pager"></div>
+    </div>
+  </main>
+</div>
+
+<!-- SECTION: footer -->
+<footer id="footer"></footer>
+
+<!-- SECTION: modal -->
+<div id="modal" role="dialog" aria-modal="true">
+  <div id="modalBox">
+    <div id="modalHead">
+      <span class="badge" id="modalBadge">PDF</span>
+      <span class="t" id="modalTitle"></span>
+      <a id="modalOpen" class="btn" target="_blank" rel="noopener">↗ 新标签打开</a>
+      <button id="modalCopy" class="btn">复制路径</button>
+      <button id="modalClose" class="btn">✕ 关闭</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div id="toast" role="status"></div>
+
+<!-- SECTION: app -->
+<script src="assets/app.js"></script>
+</body>
+</html>
